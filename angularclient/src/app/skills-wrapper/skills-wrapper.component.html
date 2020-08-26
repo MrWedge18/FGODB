@@ -1,0 +1,16 @@
+<app-skill-details *ngIf="skills && skills.length == 1" [skill]=skills[0]></app-skill-details>
+<app-np-details *ngIf="noblePhantasms && noblePhantasms.length == 1" [noblePhantasm]=noblePhantasms[0]></app-np-details>
+<ng-container *ngIf="(skills && skills.length > 1) || (noblePhantasms && noblePhantasms.length > 1)">
+	<mat-tab-group>
+		<ng-container *ngIf="skills">
+			<mat-tab *ngFor="let skill of skills" label="{{skill.name}}"> 
+				<app-skill-details [skill]=skill></app-skill-details>
+			</mat-tab>
+		</ng-container>
+		<ng-container *ngIf="noblePhantasms">
+			<mat-tab *ngFor="let np of noblePhantasms" label="{{np.name}}"> 
+				<app-np-details [noblePhantasm]=np></app-np-details>
+			</mat-tab>
+		</ng-container>
+	</mat-tab-group>
+</ng-container>

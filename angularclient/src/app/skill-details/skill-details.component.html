@@ -1,0 +1,64 @@
+<div  style="border:solid">
+	<h3> {{ skill.name }} </h3>
+
+	<div *ngFor="let skillEffect of skill.skillEffects">
+		<app-print-effect [effect]=skillEffect></app-print-effect>
+	</div>
+
+	<div>
+		<table>
+			<thead>
+				<tr>
+					<th></th>
+					<th colspan="10">Level</th>
+				</tr>
+				<tr>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>4</th>
+					<th>5</th>
+					<th>6</th>
+					<th>7</th>
+					<th>8</th>
+					<th>9</th>
+					<th>10</th>
+				</tr>
+			</thead>
+			<tbody>
+				<ng-container *ngFor="let skillEffect of skill.skillEffects">
+					<tr *ngIf="skillEffect.valueLvl1">
+						<ng-container *ngIf="skillEffect.valueIsPercentage else elseBlock">
+							<th>{{ skillEffect.effect.effect }}</th>
+							<td>{{ skillEffect.valueLvl1/100 }}%</td>
+							<td>{{ skillEffect.valueLvl2/100 }}%</td>
+							<td>{{ skillEffect.valueLvl3/100 }}%</td>
+							<td>{{ skillEffect.valueLvl4/100 }}%</td>
+							<td>{{ skillEffect.valueLvl5/100 }}%</td>
+							<td>{{ skillEffect.valueLvl6/100 }}%</td>
+							<td>{{ skillEffect.valueLvl7/100 }}%</td>
+							<td>{{ skillEffect.valueLvl8/100 }}%</td>
+							<td>{{ skillEffect.valueLvl9/100 }}%</td>
+							<td>{{ skillEffect.valueLvl10/100 }}%</td>
+						</ng-container>
+						<ng-template #elseBlock>
+							<th>{{ skillEffect.effect.effect }}</th>
+							<td>{{ skillEffect.valueLvl1 }}</td>
+							<td>{{ skillEffect.valueLvl2 }}</td>
+							<td>{{ skillEffect.valueLvl3 }}</td>
+							<td>{{ skillEffect.valueLvl4 }}</td>
+							<td>{{ skillEffect.valueLvl5 }}</td>
+							<td>{{ skillEffect.valueLvl6 }}</td>
+							<td>{{ skillEffect.valueLvl7 }}</td>
+							<td>{{ skillEffect.valueLvl8 }}</td>
+							<td>{{ skillEffect.valueLvl9 }}</td>
+							<td>{{ skillEffect.valueLvl10 }}</td>
+						</ng-template>
+					</tr>
+				</ng-container>
+
+			</tbody>
+
+		</table>
+	</div>
+</div>

@@ -1,0 +1,11 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+ul.select2-results__options {
+	max-height: 60vh !important;
+}
+
+ul.select2-results__options--nested {
+	max-height: none !important;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

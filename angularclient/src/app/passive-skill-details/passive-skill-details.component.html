@@ -1,0 +1,12 @@
+<div style="border:solid">
+	<h3>{{ skill.name }} {{ skill.rank }}</h3>
+	<ng-container *ngFor="let passiveEffect of skill.passiveEffects">
+		<p>
+			<span>{{ passiveEffect.effect.effect }}</span>
+			<span *ngIf="passiveEffect.valueIsPercentage"> by {{ passiveEffect.value/100 }}%</span>
+		</p>
+		<p *ngIf="passiveEffect.notes">
+			{{ passiveEffect.notes }}
+		</p>
+	</ng-container>
+</div>

@@ -1,0 +1,59 @@
+<div *ngIf="servant">
+	<h1>{{ servant.name }}</h1>
+	<table>
+		<tr>
+			<th></th><td><span *ngFor="let i of [].constructor(servant.stars)">★</span></td>
+			<th>Cost: </th><td>{{ servant.cost }}</td>
+		</tr>
+		<br>
+		<tr>
+			<th>ATK: </th><td>{{ servant.minAtk }} / {{ servant.maxAtk }}</td>
+			<th>HP: </th><td>{{ servant.minHp }} / {{ servant.maxHp }}</td>
+		</tr>
+		<tr>
+			<th>Grail ATK: </th><td>{{ servant.grailAtk }}</td>
+			<th>Grail HP: </th><td>{{ servant.grailHp }}</td>
+		</tr>
+		<tr>
+			<th>Star Absorption: </th><td>{{ servant.starAbsorption }}</td>
+			<th>Star Generation: </th><td>{{ servant.starGeneration / 100 }}%</td>
+		</tr>
+		<tr>
+			<th>NP Charge ATK: </th><td>{{ servant.npChargeAtk / 100 }}%</td>
+			<th>NP Charge DEF: </th><td>{{ servant.npChargeDef / 100 }}%</td>
+		</tr>
+		<tr>
+			<th>Death Chance: </th><td>{{ servant.deathRate / 100 }}%</td>
+		</tr>
+		<br>
+		<tr>
+			<th>Alignments: </th><td>{{ servant.alignments }}</td>
+			<th>Attribute: </th><td>{{ servant.attribute }}</td>
+		</tr>
+		<tr>
+			<th>Gender: </th><td>{{ servant.gender }}</td>
+		</tr>
+		<tr>
+			<th>Traits: </th><td colspan="3">{{ servant.traits }}</td>
+		</tr>
+		<br>
+		<tr>
+			<th>Japanese Name: </th><td>{{ servant.jpName }}</td>
+			<th>AKA: </th><td>{{ servant.aka }}</td>
+		</tr>
+		<tr>
+			<th>VA: </th><td>{{ servant.va }}</td>
+			<th>Illustrator: </th><td>{{ servant.illustrator }}</td>
+		</tr>
+	</table>
+	<h2>Passive Skills</h2>
+	<app-passive-skill-details *ngFor="let passive of servant.passiveSkills" [skill]=passive></app-passive-skill-details>
+	<h2>First Skill</h2>
+	<app-skills-wrapper [skills]=servant.skills1></app-skills-wrapper>
+	<h2>Second Skill</h2>
+	<app-skills-wrapper [skills]=servant.skills2></app-skills-wrapper>
+	<h2>Third Skill</h2>
+	<app-skills-wrapper [skills]=servant.skills3></app-skills-wrapper>
+	<h2>Noble Phantasm</h2>
+	<app-skills-wrapper [noblePhantasms]=servant.noblePhantasms></app-skills-wrapper>
+</div>

@@ -1,0 +1,80 @@
+<h3>{{ noblePhantasm.name }}</h3>
+<p *ngFor="let effect of noblePhantasm.effects">
+	<app-print-effect [effect]=effect></app-print-effect>
+</p>
+<table>
+	<thead>
+		<tr>
+			<th></th>
+			<th colspan="5">NP Level</th>
+		</tr>
+		<tr>
+			<th></th>
+			<th>1</th>
+			<th>2</th>
+			<th>3</th>
+			<th>4</th>
+			<th>5</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let effect of noblePhantasm.effects">
+			<ng-container *ngIf="effect.valueIsPercentage else elseBlock">
+				<th>{{ effect.effect.effect }}</th>
+				<td>{{ effect.valueLvl1/100 }}%</td>
+				<td>{{ effect.valueLvl2/100 }}%</td>
+				<td>{{ effect.valueLvl3/100 }}%</td>
+				<td>{{ effect.valueLvl4/100 }}%</td>
+				<td>{{ effect.valueLvl5/100 }}%</td>
+			</ng-container>
+			<ng-template #elseBlock>
+				<th>{{ effect.effect.effect }}</th>
+				<td>{{ effect.valueLvl1 }}</td>
+				<td>{{ effect.valueLvl2 }}</td>
+				<td>{{ effect.valueLvl3 }}</td>
+				<td>{{ effect.valueLvl4 }}</td>
+				<td>{{ effect.valueLvl5 }}</td>
+			</ng-template>
+		</tr>
+	</tbody>
+</table>
+<p>Overcharge Effects</p>
+<p *ngFor="let effect of noblePhantasm.overchargeEffects">
+	<app-print-effect [effect]=effect></app-print-effect>
+</p>
+<table>
+	<thead>
+		<tr>
+			<th></th>
+			<th colspan="5">NP Charge</th>
+		</tr>
+		<tr>
+			<th></th>
+			<th>100%</th>
+			<th>200%</th>
+			<th>300%</th>
+			<th>400%</th>
+			<th>500%</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let effect of noblePhantasm.overchargeEffects">
+			<ng-container *ngIf="effect.valueIsPercentage">
+				<th>{{ effect.effect.effect }}</th>
+				<td>{{ effect.valueLvl1/100 }}%</td>
+				<td>{{ effect.valueLvl2/100 }}%</td>
+				<td>{{ effect.valueLvl3/100 }}%</td>
+				<td>{{ effect.valueLvl4/100 }}%</td>
+				<td>{{ effect.valueLvl5/100 }}%</td>
+			</ng-container>
+			<ng-template #elseBlock>
+				<th>{{ effect.effect.effect }}</th>
+				<td>{{ effect.valueLvl1 }}</td>
+				<td>{{ effect.valueLvl2 }}</td>
+				<td>{{ effect.valueLvl3 }}</td>
+				<td>{{ effect.valueLvl4 }}</td>
+				<td>{{ effect.valueLvl5 }}</td>
+			</ng-template>
+		</tr>
+	</tbody>
+</table>

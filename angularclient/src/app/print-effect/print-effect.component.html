@@ -1,0 +1,16 @@
+<span *ngIf="effect.chance">{{ effect.chance}}% chance to </span>
+<span>{{ effect.effect.effect }}</span>
+<ng-container *ngIf="effect.stacks">
+	<span *ngIf="effect.stacks>1 else elseBlock"> {{ effect.stacks }} times</span>
+	<ng-template #elseBlock><span> {{ effect.stacks }} time</span></ng-template>
+</ng-container>
+<ng-container *ngIf="effect.duration">
+	<span *ngIf="effect.duration>1 else elseBlock"> for {{ effect.duration}} turns</span>
+	<ng-template #elseBlock><span> for {{ effect.duration }} turn</span></ng-template>
+</ng-container>
+<ng-container [ngSwitch]="effect.target">
+	<span *ngSwitchCase="'Self'"> for themself</span>
+	<span *ngSwitchCase="'Party'"> for whole party</span>
+	<span *ngSwitchCase="'Choose'"> for an ally</span>
+	<span *ngSwitchCase="'Party sans self'"> for party except themself</span>
+</ng-container>
