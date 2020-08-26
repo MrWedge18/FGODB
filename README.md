@@ -1,4 +1,4 @@
-#FGODB
+# FGODB
 
 A WIP website for searching and filtering through stats and skill effects in Fate Grand/Order. Mainly using this to practice/learn Spring Boot, JPA, SQL, and Angular.
 
